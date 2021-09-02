@@ -47,6 +47,34 @@ function procesarCompra() {
     }
     else {
 
+        productosLS = compra.obtenerProductosLocalStorage();
+
+        const mercadopago = require ('mercadopago');
+        // Agrega credenciales
+        mercadopago.configure({
+        access_token: 'PROD_ACCESS_TOKEN'
+        });
+
+
+        let preference = {
+            items: [
+              {
+                title: productosLS.titulo,
+                unit_price: productosLS.precio,
+                quantity: productosLS.cantidad,
+              }
+            ]
+          };
+          
+          mercadopago.preferences.create(preference)
+          .then(function(response){
+          // Este valor reemplazará el string "<%= global.id %>" en tu HTML
+            global.id = response.body.id;
+          }).catch(function(error){
+            console.log(error);
+          });
+
+
         //aqui se coloca el user id generado en el emailJS
         (function(){
             emailjs.init('user_1vELAcSZVQReePNxseDpF');
@@ -80,7 +108,6 @@ function procesarCompra() {
         textArea.cols = 60;
         textArea.rows = 10;
         textArea.hidden = true;
-        productosLS = compra.obtenerProductosLocalStorage();
         productosLS.forEach(function (producto) {
             textArea.innerHTML += `
                  Producto : ${producto.titulo} <br>

@@ -3,13 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilo.css">
     <script src="js/popper.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/sweetalert2.min.css">
     <link rel="stylesheet" href="css/index1.css?v=<?php echo time(); ?>">
@@ -28,52 +26,49 @@
                 <a href="index.php"><img src="image/Logo HadtecSoft (1).png" width="125px" onclick="window.location.href='index.php'"></a>
             </div>
             <div class="nav-items" style="margin-top:18px;">
-            <?php
-                    session_start();
-                    if(!empty($_SESSION['username'])){
-                        $nombre = $_SESSION['username'];
-                        $apellido = $_SESSION['apellido'];
-                        $email = $_SESSION['email'];
-                        ?>
-                            
-                            <li><a href="productos.php">Catálogo</a></li>
-                            <li><a href="soporte.php">Contacto</a></li>
-                            <li class="anchar"><a href="#"><?php echo $nombre;?></a></li>
-                            <li><a href="login.php">Salir</a></li>
-                        <?php
-                    }
-                    else{
-                        header("location:login.php");
-                    }
+                <?php
+                session_start();
+                if (!empty($_SESSION['username'])) {
+                    $nombre = $_SESSION['username'];
+                    $apellido = $_SESSION['apellido'];
+                    $email = $_SESSION['email'];
                 ?>
-                    <div class="collapse navbar-collapse show" id="navbarCollapse" style="margin-left:300px;">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown show">
-                                <img src="img/cart.jpeg" class="nav-link dropdown-toggle img-fluid" height="30px"
-                                    width="30px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true"></img>
-                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                                    <table id="lista-carrito" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Imagen</th>
-                                                <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
 
-                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block blanco" style="color:white;">Vaciar Carrito</a>
-                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block blanco" style="color:white;">Procesar
-                                        Compra</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <li><a href="productos.php">Catálogo</a></li>
+                    <li><a href="soporte.php">Contacto</a></li>
+                    <li class="anchar"><a href="#"><?php echo $nombre; ?></a></li>
+                    <li><a href="login.php">Salir</a></li>
+                <?php
+                } else {
+                    header("location:login.php");
+                }
+                ?>
+                <div class="collapse navbar-collapse show" id="navbarCollapse" style="margin-left:300px;">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown show">
+                            <img src="img/cart.jpeg" class="nav-link dropdown-toggle img-fluid" height="30px" width="30px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></img>
+                            <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                <table id="lista-carrito" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+
+                                <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block blanco" style="color:white;">Vaciar Carrito</a>
+                                <a href="#" id="procesar-pedido" class="btn btn-danger btn-block blanco" style="color:white;">Procesar
+                                    Compra</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
+
             <div class="search-icon">
                 <span class="fas fa-search"></span>
             </div>
@@ -99,19 +94,18 @@
                         <div class="form-group row">
                             <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente"
-                                    placeholder="<?php echo $nombre.' '.$apellido;?>" name="destinatario" value="<?php echo $nombre.' '.$apellido;?>">
+                                <input type="text" class="form-control" id="cliente" placeholder="<?php echo $nombre . ' ' . $apellido; ?>" name="destinatario" value="<?php echo $nombre . ' ' . $apellido; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="correo" placeholder="<?php echo $email;?>" name="cc_to" value="<?php echo $email;?>">
+                                <input type="text" class="form-control" id="correo" placeholder="<?php echo $email; ?>" name="cc_to" value="<?php echo $email; ?>">
                             </div>
                         </div>
 
-                        <div id="carrito" class="form-group table-responsive" >
-                            <table class="form-group table" id="lista-compra" >
+                        <div id="carrito" class="form-group table-responsive">
+                            <table class="form-group table" id="lista-compra">
                                 <thead>
                                     <tr>
                                         <th scope="col">Imagen</th>
@@ -123,7 +117,7 @@
                                     </tr>
 
                                 </thead>
-                                <tbody >
+                                <tbody>
 
                                 </tbody>
                                 <tr>

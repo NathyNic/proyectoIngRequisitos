@@ -962,3 +962,72 @@ ul {
 .blanco {
     color: white;
 }
+
+.site-blocks-table {
+    overflow: auto;
+}
+
+.site-blocks-table .product-thumbnail {
+    width: 200px;
+}
+
+.site-blocks-table thead th {
+    padding: 30px;
+    text-align: center;
+    border-width: 1px !important;
+    vertical-align: middle;
+    color: #212529;
+    font-size: 18px;
+}
+
+.site-blocks-table td {
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    color: #212529;
+}
+
+.site-blocks-table tbody tr:first-child td {
+    border-top: 1px solid #7971ea !important;
+}
+
+.site-block-order-table th {
+    border-top: none !important;
+    border-bottom-width: 1px !important;
+}
+
+.site-block-order-table td,
+.site-block-order-table th {
+    color: #000;
+}
+
+.form-control {
+    height: 43px;
+}
+
+.form-control:active,
+.form-control:focus {
+    border-color: #7971ea;
+}
+
+.form-control:hover,
+.form-control:active,
+.form-control:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.btncomp {
+    text-transform: uppercase;
+    position: relative;
+    -webkit-transition: 0.2s all ease-in-out !important;
+    -o-transition: 0.2s all ease-in-out !important;
+    transition: 0.2s all ease-in-out !important;
+    top: 0;
+    letter-spacing: .05em;
+}
+
+.nav-items ul li a.site-cart {
+    display: block;
+    position: relative;
+}

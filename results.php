@@ -81,7 +81,7 @@ include('header.php');
                 <div class="bottom">
                   <a href="<?php echo 'productDetails.php?id=' . $data['id'] ?>"><?php echo $data['nombre'] ?></a>
                   <div class="price">
-                    <span><?php echo 'S/' . $data['precio'] ?></span>
+                    <span><?php echo '$' . $data['precio'] ?></span>
                   </div>
                 </div>
               </div>
